@@ -15,11 +15,19 @@ class QuoteCard extends StatelessWidget {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget> [
-              Center(child: Text(quotes.text)),
+              Center(child: Text(quotes.text,
+              style: TextStyle(
+                color: Colors.cyan,
+                fontSize: 20
+              ),)),
+              SizedBox(height: 10),
+              Center(child: Text(quotes.author,
+              style: TextStyle(
+                color: Colors.indigo,
+                fontSize: 15
+              ),)),
               SizedBox(height: 6),
-              Center(child: Text(quotes.author)),
-              SizedBox(height: 6),
-              FloatingActionButton(onPressed: delete)
+              FloatingActionButton(onPressed: delete, backgroundColor: Colors.deepOrangeAccent)
 
 
             ]
