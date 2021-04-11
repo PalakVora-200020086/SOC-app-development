@@ -14,7 +14,7 @@ class Quotes extends StatefulWidget {
 class _QuotesState extends State<Quotes> {
   List <Quote> quotes =  [
     Quote(text:'Happiness can be found in even the darkest of times if only one remembers to turn on the light ', author:'-Albus Dumbledore'),
-    Quote(text:'It is not you abilities that define you, it is your choices', author:'-Albus Dumbledore'),
+    Quote(text:'It is not your abilities that define you, it is your choices', author:'-Albus Dumbledore'),
     Quote(text:'Always', author:'-Severus Snape')
   ];
 

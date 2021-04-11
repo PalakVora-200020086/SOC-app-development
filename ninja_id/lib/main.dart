@@ -40,12 +40,14 @@ class _NinjaIDState extends State<NinjaID> {
             'NAME',
              style: TextStyle(
               color: Colors.pink,
+               fontSize: 20,
              ),
             ),
               Text(
                 'Ninja',
                 style: TextStyle(
                   color: Colors.lightGreen,
+                  fontSize: 17
                 ),
               ),
               SizedBox(height: 30.0,),
@@ -53,12 +55,14 @@ class _NinjaIDState extends State<NinjaID> {
                 'Level',
                 style: TextStyle(
                   color: Colors.pink,
+                  fontSize: 20,
                 ),
               ),
               Text(
                 '$level',
                 style: TextStyle(
                   color: Colors.lightGreen,
+                  fontSize: 20
                 ),
               ),
             ],
