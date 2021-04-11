@@ -10,7 +10,9 @@ void main() {
       ),
       body: Center(
       child: Text('click',
-      style: TextStyle),
+      style: TextStyle(
+        fontSize: 20, letterSpacing: 1
+      )),
       )
     ),
   ));
