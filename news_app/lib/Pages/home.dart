@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Pages/category_news.dart';
 import 'package:news_app/news.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'chosenTopic.dart';
-import 'package:news_app/news.dart';
+
 
 class Home extends StatefulWidget {
   @override

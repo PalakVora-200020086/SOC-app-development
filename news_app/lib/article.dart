@@ -18,8 +18,6 @@ class Data {
   Future<void> getNews(String category) async{
 
     http.Response response = await http.get(Uri.https('newsapi.org','org/v2/top-headlines?country=in&category=$category&apiKey=352c85dccbef4961af0d1627bcfc7057'));
-    print(response.body);
-
     var jsonData = jsonDecode(response.body);
 
     if(jsonData['status'] == "ok"){
@@ -31,8 +29,8 @@ class Data {
             author: element['author'],
             description: element['description'],
             urlToImage: element['urlToImage'],
-            content: element["content"],
-            articleUrl: element["url"],
+            content: element['content'],
+            articleUrl: element['url'],
           );
           articles.add(article);
         }

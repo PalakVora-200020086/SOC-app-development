@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Pages/home.dart';
-import 'package:news_app/Pages/loading.dart';
-import 'package:news_app/Pages/chosenTopic.dart';
 import 'article_view.dart';
 
 class NewsTile extends StatelessWidget {
-  final String imgUrl, title, desc, content, posturl ;
+  final String imgUrl, title, desc, content, postUrl ;
 
-  NewsTile({this.imgUrl, this.desc, this.title, this.content, @required this.posturl});
+  NewsTile({this.imgUrl, this.desc, this.title, this.content, @required this.postUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +12,7 @@ class NewsTile extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(
             builder: (context) => ArticleView(
-              postUrl: posturl
-
+              postUrl: postUrl,
             )
         ));
       },

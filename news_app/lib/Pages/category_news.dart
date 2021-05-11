@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/news.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:news_app/news.dart';
 import 'package:news_app/article.dart';
 import 'package:news_app/newstile.dart';
 
@@ -19,13 +15,12 @@ class CategoryNews extends StatefulWidget {
 class _CategoryNewsState extends State<CategoryNews> {
   List <Article> newslist = [];
 
-
   @override
   void initState() {
-    getNews();
     // TODO: implement initState
     super.initState();
     getNews();
+
   }
 
   void getNews() async {
@@ -39,27 +34,14 @@ class _CategoryNewsState extends State<CategoryNews> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+        title:
             Text("DAILY NEWS",
                 style:
                 TextStyle(color: Colors.teal, fontWeight: FontWeight.w600),
               ),
-
-          ],
-        ),
-        actions: <Widget>[
-          Opacity(
-            opacity: 0,
-            child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Icon(Icons.share,)),
-          )
-        ],
         backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
+        ),
+
       body:
       SingleChildScrollView(
         child: Container(
@@ -75,7 +57,7 @@ class _CategoryNewsState extends State<CategoryNews> {
                     title: newslist[index].title ?? "",
                     desc: newslist[index].description ?? "",
                     content: newslist[index].content ?? "",
-                    posturl: newslist[index].articleUrl ?? "",
+                    postUrl: newslist[index].articleUrl ?? "",
                   );
                 }),
           ),
