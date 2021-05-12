@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/article.dart';
 import 'package:news_app/newstile.dart';
+import 'package:newsapi/newsapi.dart';
 
 class CategoryNews extends StatefulWidget {
 
@@ -57,7 +58,7 @@ class _CategoryNewsState extends State<CategoryNews> {
                     title: newslist[index].title ?? "",
                     desc: newslist[index].description ?? "",
                     content: newslist[index].content ?? "",
-                    postUrl: newslist[index].articleUrl ?? "",
+                    postUrl: newslist[index].url ?? "",
                   );
                 }),
           ),

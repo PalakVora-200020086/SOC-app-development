@@ -9,6 +9,8 @@ void main() {
     initialRoute: '/home',
     routes: {
       '/home':(context) => Home(),
+      '/category_news':(context) => CategoryNews(),
+
     },
   ));
 }

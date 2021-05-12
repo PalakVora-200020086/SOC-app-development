@@ -1,45 +1,39 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-
-class Article
-{
-  String title;
-  String author;
-  String description;
-  String urlToImage;
-  String content;
-  String articleUrl;
-
-  Article({this.title,this.description,this.author,this.content, this.urlToImage, this.articleUrl});
-}
+import 'package:newsapi/newsapi.dart';
 
 class Data {
   List <Article> articles = [];
-  Future<void> getNews(String category) async{
 
-    http.Response response = await http.get(Uri.https('newsapi.org','org/v2/top-headlines?country=in&category=$category&apiKey=352c85dccbef4961af0d1627bcfc7057'));
-    var jsonData = jsonDecode(response.body);
-
-    if(jsonData['status'] == "ok"){
-      jsonData["articles"].forEach((element){
-
-        if(element['urlToImage'] != null && element['description'] != null){
+  Future<void> getNews(String category) async {
+    var newsApi = NewsApi(
+      debugLog: true,
+      apiKey: '352c85dccbef4961af0d1627bcfc7057',
+    );
+    ArticleResponse topHeadlines = await newsApi.topHeadlines(
+      country: 'in',
+      category: category,
+      //sources: sources,
+      //    q: q,
+      language: 'en',
+      //    pageSize: pageSize,
+      //    page: page,
+    );
+    //    print(topHeadlines.articles[1].description);
+    forEach(index)
+    {
+      if (topHeadlines.articles[index].urlToImage != null &&
+          topHeadlines.articles[index].description != null) {
           Article article = Article(
-            title: element['title'],
-            author: element['author'],
-            description: element['description'],
-            urlToImage: element['urlToImage'],
-            content: element['content'],
-            articleUrl: element['url'],
-          );
-          articles.add(article);
-        }
-
-      });
+          title: topHeadlines.articles[index].title,
+          author: topHeadlines.articles[index].author,
+          description: topHeadlines.articles[index].description,
+          urlToImage: topHeadlines.articles[index].urlToImage,
+          content: topHeadlines.articles[index].content,
+            source : null,
+            publishedAt: null,
+            url: topHeadlines.articles[index].url,
+        );
+        articles.add(article);
+      }
     }
-
-
   }
-
-
 }

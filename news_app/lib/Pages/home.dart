@@ -43,11 +43,11 @@ class _HomeState extends State<Home> {
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
                         builder: (context) => CategoryNews(
-                        category: news[index].name ,
+                        category: '${news[index].name}' ,
                     )
                     ));
                   },
-                  title: Text(news[index].name),
+                  title: Text('${news[index].name}'),
                   leading: CircleAvatar(
                     backgroundImage: AssetImage('assets/${news[index].pic}'),
                   ),
