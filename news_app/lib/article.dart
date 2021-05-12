@@ -20,17 +20,17 @@ class Data {
     //    print(topHeadlines.articles[1].description);
     forEach(index)
     {
-      if (topHeadlines.articles[index].urlToImage != null &&
-          topHeadlines.articles[index].description != null) {
+      if ('${topHeadlines.articles[index].urlToImage}' != null &&
+          '${topHeadlines.articles[index].description}' != null) {
           Article article = Article(
-          title: topHeadlines.articles[index].title,
-          author: topHeadlines.articles[index].author,
-          description: topHeadlines.articles[index].description,
-          urlToImage: topHeadlines.articles[index].urlToImage,
-          content: topHeadlines.articles[index].content,
+          title: '${topHeadlines.articles[index].title}',
+          author: '${topHeadlines.articles[index].author}',
+          description: '${topHeadlines.articles[index].description}',
+          urlToImage: '${topHeadlines.articles[index].urlToImage}',
+          content: '${topHeadlines.articles[index].content}',
             source : null,
             publishedAt: null,
-            url: topHeadlines.articles[index].url,
+            url: '${topHeadlines.articles[index].url}',
         );
         articles.add(article);
       }

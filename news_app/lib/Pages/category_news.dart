@@ -54,11 +54,11 @@ class _CategoryNewsState extends State<CategoryNews> {
                 physics: ClampingScrollPhysics(),
                 itemBuilder: (context, index) {
                   return NewsTile(
-                    imgUrl: newslist[index].urlToImage ?? "",
-                    title: newslist[index].title ?? "",
-                    desc: newslist[index].description ?? "",
-                    content: newslist[index].content ?? "",
-                    postUrl: newslist[index].url ?? "",
+                    imgUrl: '${newslist[index].urlToImage}' ?? "",
+                    title:'${ newslist[index].title}' ?? "",
+                    desc: '${newslist[index].description}' ?? "",
+                    content: '${newslist[index].content}' ?? "",
+                    postUrl: '${newslist[index].url}' ?? "",
                   );
                 }),
           ),
