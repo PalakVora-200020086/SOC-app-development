@@ -12,7 +12,7 @@ class NewsTile extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(
             builder: (context) => ArticleView(
-              postUrl: postUrl,
+              postUrl: '$postUrl',
             )
         ));
       },
@@ -33,14 +33,14 @@ class NewsTile extends StatelessWidget {
                   ClipRRect(
                       borderRadius: BorderRadius.circular(6),
                       child: Image.network(
-                        imgUrl,
+                        '$imgUrl',
                         height: 200,
                         width: MediaQuery.of(context).size.width,
                         fit: BoxFit.cover,
                       )),
                   SizedBox(height: 12,),
                   Text(
-                    title,
+                    '$title',
                     maxLines: 2,
                     style: TextStyle(
                         color: Colors.black87,
@@ -51,7 +51,7 @@ class NewsTile extends StatelessWidget {
                     height: 4,
                   ),
                   Text(
-                    desc,
+                    '$desc',
                     maxLines: 2,
                     style: TextStyle(color: Colors.black54, fontSize: 14),
                   )

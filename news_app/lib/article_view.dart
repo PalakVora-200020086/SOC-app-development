@@ -41,7 +41,7 @@ class _ArticleViewState extends State<ArticleView> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: WebView(
-          initialUrl:  widget.postUrl,
+          initialUrl: '${widget.postUrl}',
           onWebViewCreated: (WebViewController webViewController){
             _controller.complete(webViewController);
           },
