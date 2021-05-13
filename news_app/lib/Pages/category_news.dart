@@ -15,7 +15,7 @@ class CategoryNews extends StatefulWidget {
 
 class _CategoryNewsState extends State<CategoryNews> {
   List <Article> newslist = [];
-
+  bool _loading = true;
   @override
   void initState() {
     // TODO: implement initState
@@ -28,22 +28,27 @@ class _CategoryNewsState extends State<CategoryNews> {
     Data news = Data();
     await news.getNews(widget.category);
     newslist = news.articles;
-
+    setState(() {
+      _loading = false;
+    });
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title:
-            Text("DAILY NEWS",
+            Text("WHAT'S NEW ?",
                 style:
                 TextStyle(color: Colors.teal, fontWeight: FontWeight.w600),
               ),
         backgroundColor: Colors.transparent,
         ),
 
-      body:
+      body:_loading ? Center(
+        child: CircularProgressIndicator(),
+      ) :
       SingleChildScrollView(
         child: Container(
           child: Container(
@@ -54,11 +59,11 @@ class _CategoryNewsState extends State<CategoryNews> {
                 physics: ClampingScrollPhysics(),
                 itemBuilder: (context, index) {
                   return NewsTile(
-                    imgUrl: '${newslist[index].urlToImage}' ?? "",
-                    title:'${ newslist[index].title}' ?? "",
-                    desc: '${newslist[index].description}' ?? "",
-                    content: '${newslist[index].content}' ?? "",
-                    postUrl: '${newslist[index].url}' ?? "",
+                    imgUrl: newslist[index].urlToImage ?? "",
+                    title: newslist[index].title ?? "",
+                    desc: newslist[index].description ?? "",
+                    content: newslist[index].content ?? "",
+                    postUrl: newslist[index].url ?? "",
                   );
                 }),
           ),

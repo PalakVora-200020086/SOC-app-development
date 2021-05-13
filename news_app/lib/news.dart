@@ -1,5 +1,3 @@
-import 'package:http/http.dart' as http;
-
 class News {
   String name;
   String pic;

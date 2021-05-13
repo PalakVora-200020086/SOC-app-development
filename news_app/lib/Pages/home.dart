@@ -11,10 +11,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   List<News> news = [
-    News(name:'sports', pic:'sports.png'),
-    News(name:'business', pic:'business.png'),
-    News(name:'health', pic:'health.png'),
-    News(name:'entertainment', pic:'entertainment.png'),
+    News(name:'Sports', pic:'sports.png'),
+    News(name:'Business', pic:'business.png'),
+    News(name:'Health', pic:'health.png'),
+    News(name:'Entertainment', pic:'entertainment.png'),
+    News(name:'General', pic:'general.png'),
+    News(name:'Science', pic:'science.png'),
+    News(name:'Technology', pic:'technology.png'),
   ];
 
   @override
@@ -25,7 +28,7 @@ class _HomeState extends State<Home> {
         title: Center(
           child: Text(' DAILY NEWS',style: TextStyle(
             color: Colors.cyan,
-            fontSize: 20
+            fontSize: 25
           ),),
         ),
         backgroundColor: Colors.black87,
@@ -43,15 +46,20 @@ class _HomeState extends State<Home> {
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
                         builder: (context) => CategoryNews(
-                        category: '${news[index].name}' ,
+                        category: '${news[index].name.toLowerCase()}' ,
                     )
                     ));
                   },
-                  title: Text('${news[index].name}'),
+                  title: Text('${news[index].name}',
+                      style:TextStyle(
+                        color: Colors.blue[900],
+                        fontSize: 20
+                      )),
                   leading: CircleAvatar(
                     backgroundImage: AssetImage('assets/${news[index].pic}'),
                   ),
                 ),
+
               ),
             );
           }

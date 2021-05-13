@@ -17,6 +17,7 @@ class NewsTile extends StatelessWidget {
         ));
       },
       child: Container(
+
           margin: EdgeInsets.only(bottom: 24),
           width: MediaQuery.of(context).size.width,
           child: Container(
@@ -41,7 +42,7 @@ class NewsTile extends StatelessWidget {
                   SizedBox(height: 12,),
                   Text(
                     '$title',
-                    maxLines: 2,
+                    maxLines: 5,
                     style: TextStyle(
                         color: Colors.black87,
                         fontSize: 20,
@@ -52,7 +53,7 @@ class NewsTile extends StatelessWidget {
                   ),
                   Text(
                     '$desc',
-                    maxLines: 2,
+                    maxLines: 5,
                     style: TextStyle(color: Colors.black54, fontSize: 14),
                   )
                 ],
