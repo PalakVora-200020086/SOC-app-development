@@ -18,21 +18,22 @@ class Data {
       //    page: page,
     );
     //    print(topHeadlines.articles[1].description);
-   int index = 0;
-    if ('${topHeadlines.articles[index].urlToImage}' != null &&
-        '${topHeadlines.articles[index].description}' != null) {
-      Article article = Article(
-        title: '${topHeadlines.articles[index].title}',
-        author: '${topHeadlines.articles[index].author}',
-        description: '${topHeadlines.articles[index].description}',
-        urlToImage: '${topHeadlines.articles[index].urlToImage}',
-        content: '${topHeadlines.articles[index].content}',
-        source : null,
-        publishedAt: null,
-        url: '${topHeadlines.articles[index].url}',
-      );
-      articles.add(article);
-    }
+   for (int index = 0; index < topHeadlines.articles.length ; index ++) {
+     if ('${topHeadlines.articles[index].urlToImage}' != null &&
+         '${topHeadlines.articles[index].description}' != null) {
+       Article article = Article(
+         title: '${topHeadlines.articles[index].title}',
+         author: '${topHeadlines.articles[index].author}',
+         description: '${topHeadlines.articles[index].description}',
+         urlToImage: '${topHeadlines.articles[index].urlToImage}',
+         content: '${topHeadlines.articles[index].content}',
+         source: null,
+         publishedAt: null,
+         url: '${topHeadlines.articles[index].url}',
+       );
+       articles.add(article);
+     }
+   }
 
 
      //print(topHeadlines.articles[index].title);
