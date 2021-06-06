@@ -1,86 +1,39 @@
 import 'package:flutter/material.dart';
+import 'form_screen.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: NinjaID(),
+
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => Home(),
+        '/form_screen': (context) => FormScreen(),
+      }
   ));
 }
-class NinjaID extends StatefulWidget {
+
+class Home extends StatefulWidget {
   @override
-  _NinjaIDState createState() => _NinjaIDState();
+  _HomeState createState() => _HomeState();
 }
 
-class _NinjaIDState extends State<NinjaID> {
-  int level = 0;
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white10,
       appBar: AppBar(
-        title: Center(
-          child: Text('Ninja ID Card',
-          style: TextStyle(
-            color: Colors.pinkAccent[100],
-            ),
-          ),
-        ),
-        backgroundColor: Colors.black,
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(10),
-        child: Center(
-          child: Column(
-            children: <Widget> [
-           CircleAvatar(
-             backgroundImage: NetworkImage('https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-             radius: 40.0,
-           ),
-              SizedBox(height: 30),
-            Text(
-            'NAME',
-             style: TextStyle(
-              color: Colors.pink,
-               fontSize: 20,
-             ),
-            ),
-              Text(
-                'Ninja',
-                style: TextStyle(
-                  color: Colors.lightGreen,
-                  fontSize: 17
-                ),
-              ),
-              SizedBox(height: 30.0,),
-              Text(
-                'Level',
-                style: TextStyle(
-                  color: Colors.pink,
-                  fontSize: 20,
-                ),
-              ),
-              Text(
-                '$level',
-                style: TextStyle(
-                  color: Colors.lightGreen,
-                  fontSize: 20
-                ),
-              ),
-            ],
-           ),
-        ),
-      ),
-      floatingActionButton:
-         FloatingActionButton(
-          onPressed: (){
-            setState(() {
-              level++;
-            });
-          },
-          backgroundColor: Colors.pinkAccent,
-        ),
-      );
+      title: Text("Home"),
+      centerTitle: true,
+    ),
+    floatingActionButton: FloatingActionButton.extended(
+    onPressed :(){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> FormScreen()));
+      },
+      icon: Icon(Icons.add),
+      label: Text("Add a new customer") ,
 
+    )
+
+    );
   }
 }
-
-
